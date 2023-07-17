@@ -1,12 +1,23 @@
 package ru.netology
 
 fun main() {
-    val likes = """Задача №2. Люди/Человеки сформулирована от слова "никак".
-        Условие из 2 пунктов, во втором просят вывести в консоль что-то в зависимости
-        от содержания переменной "likes", но в первом пункте говорится, что там должно
-        быть количество лайков?! А еще, в подобных задачах, по идее, надо бы пример вывода 
-        в консоль работы программы приводить, тогда хоть будет понятно, что конкретно 
-        хотят увидеть в результате.
-    """
-    println(likes)
+    while (true) {
+        val likes = readLine()
+        if (likes != null) {
+            if (likes == "end") break
+            showMessage(likes);
+        }
+    }
+}
+
+fun showMessage(like: String) {
+    val lastDigit = like.toInt() % 10
+    val preLastDigit = (like.toInt() / 10) % 10
+    when(lastDigit) {
+        1 -> {
+            if (preLastDigit == 1) println("Понравилось $like людям")
+            else println("Понравилось $like человеку")
+        }
+        else -> println("Понравилось $like людям")
+    }
 }
