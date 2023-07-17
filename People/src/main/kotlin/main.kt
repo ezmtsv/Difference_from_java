@@ -2,10 +2,12 @@ package ru.netology
 
 fun main() {
     while (true) {
+        println("""Введите количество лайков или "end" для выхода из программы и нажмите enter""")
         val likes = readLine()
         if (likes != null) {
             if (likes == "end") break
             showMessage(likes);
+            println()
         }
     }
 }
